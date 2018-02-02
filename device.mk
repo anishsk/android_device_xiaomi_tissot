@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-PRODUCT_SHIPPING_API_LEVEL := 25
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit tissot-vendor
 $(call inherit-product, vendor/xiaomi/tissot/tissot-vendor.mk)
@@ -44,7 +44,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bootctrl.msm8953
 PRODUCT_PACKAGES_DEBUG += \
-    bootctl
+    bootctrl
 
 # Enable update engine sideloading by including the static version of the
 # boot_control HAL and its dependencies.
@@ -59,7 +59,7 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 PRODUCT_PACKAGES += \
     bootctrl.msm8996
 PRODUCT_PACKAGES_DEBUG += \
-    bootctl
+    bootctrl
 
 # A/B OTA dexopt package
 PRODUCT_PACKAGES += otapreopt_script
@@ -262,24 +262,16 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.class_main.sh \
-    init.qcom.class_core.sh \
-    init.qcom.early_boot.sh \
     init.qcom.rc \
-    init.qcom.sensors.sh \
     init.qcom.sh \
-    init.qcom.ssr.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.target.rc \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
-    init.qcom.audio.sh \
     init.qcom.bt.sh \
-    init.qcom.fm.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.wifi.sh
+    init.qcom.post_boot.sh
 
 # RIL
 PRODUCT_PACKAGES += \
