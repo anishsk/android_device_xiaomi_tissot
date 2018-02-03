@@ -35,7 +35,6 @@ AB_OTA_PARTITIONS += \
     system
 
 AB_OTA_UPDATER := true
-
 PRODUCT_PACKAGES += \
     update_engine \
     update_verifier
@@ -44,7 +43,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bootctrl.msm8953
 PRODUCT_PACKAGES_DEBUG += \
-    bootctrl
+    bootctl
 
 # Enable update engine sideloading by including the static version of the
 # boot_control HAL and its dependencies.
@@ -52,14 +51,8 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.msm8953 \
     librecovery_updater_msm8953 \
     libsparse_static
-#PRODUCT_PACKAGES += \
-    update_engine_sideload
-
-# Bootloader HAL used for A/B updates.
 PRODUCT_PACKAGES += \
-    bootctrl.msm8996
-PRODUCT_PACKAGES_DEBUG += \
-    bootctrl
+    update_engine_sideload
 
 # A/B OTA dexopt package
 PRODUCT_PACKAGES += otapreopt_script
@@ -320,3 +313,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/firmware/wlan/prima/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+
+# OEM Unlock reporting
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.oem_unlock_supported=1
