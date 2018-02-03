@@ -7,11 +7,11 @@
       "remote":"github",
       "repository":"ghpranav/android_kernel_xiaomi_tissot",
       "target_path":"kernel/xiaomi/msm8953",
-      "branch":"tissot-n-oss"
+      "branch":"cm-14.1"
    },
    {
       "remote":"github",
-      "repository":"ghpranav/proprietary_vendor_xiaomi",
+      "repository":"ghpranav/android_vendor_xiaomi_tissot",
       "target_path":"vendor/xiaomi",
       "branch":"cm-14.1"
    }
