@@ -7,7 +7,6 @@ allow boot_control_hal block_device:dir { open read };
 
 # Allow boot_control_hal to get attributes on all the A/B partitions.
 allow boot_control_hal {
-  custom_ab_block_device
   xbl_block_device
   boot_block_device
   ssd_block_device
