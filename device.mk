@@ -24,7 +24,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # A/B style
 PRODUCT_PACKAGES_DEBUG += \
@@ -317,3 +317,8 @@ PRODUCT_COPY_FILES += \
 # OEM Unlock reporting
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.oem_unlock_supported=1
+
+# Setup dm-verity configs
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
+#PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/vendor
+$(call inherit-product, build/target/product/verity.mk)
