@@ -128,8 +128,15 @@ ENABLE_CPUSETS := true
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 
-# Disable dex pre-opt
-WITH_DEXPREOPT := false
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -196,6 +203,9 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
 #TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 #TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_$(TARGET_BOARD_PLATFORM)
+
+# Root
+BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
 # Sensor
 USE_SENSOR_MULTI_HAL := true
