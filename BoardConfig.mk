@@ -153,6 +153,11 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := true
 USE_DEVICE_SPECIFIC_GPS := true
 
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_tissot
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
+TARGET_RECOVERY_DEVICE_MODULES := libinit_tissot
+
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
 
@@ -190,13 +195,14 @@ TARGET_RIL_VARIANT := caf
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
 #TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 #TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub
-#TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_$(TARGET_BOARD_PLATFORM)
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_$(TARGET_BOARD_PLATFORM)
 
 # Sensor
 USE_SENSOR_MULTI_HAL := true
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
