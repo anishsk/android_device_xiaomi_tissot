@@ -138,14 +138,20 @@ PRODUCT_COPY_FILES += \
 	$(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:/system/etc/usb_audio_policy_configuration.xml
 
 # Camera
-#PRODUCT_PACKAGES += \
- #   camera.msm8953 \
-   # libmm-qcamera \
-  #  Snap
+PRODUCT_PACKAGES += \
+    camera.msm8953 \
+    libmm-qcamera \
+    Snap
 
 # Consumerir
 #PRODUCT_PACKAGES += \
 #    consumerir.msm8953
+
+# Connectivity Engine support (CNE)
+PRODUCT_PACKAGES += \
+    cneapiclient \
+    com.quicinc.cne \
+    services-ext
 
 # Display
 PRODUCT_PACKAGES += \
@@ -313,10 +319,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/firmware/wlan/prima/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
-
-# OEM Unlock reporting
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.oem_unlock_supported=1
 
 # Setup dm-verity configs
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
