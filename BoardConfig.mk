@@ -15,7 +15,7 @@
 #
 
 LOCAL_PATH := device/xiaomi/tissot
-DEVICE_PATH := device/xiaomi/tissot
+#DEVICE_PATH := device/xiaomi/tissot
 
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
@@ -56,7 +56,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8953
 
 # Modules
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/prebuilt/modules/pronto/pronto_wlan.ko:system/lib/modules/wlan.ko
+    $(LOCAL_PATH)/prebuilt/modules/pronto/pronto_wlan.ko:system/lib/modules/wlan.ko
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := tissot,tissot_sprout
