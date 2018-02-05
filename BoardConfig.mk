@@ -55,7 +55,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8953
 
 # Modules
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/prebuilt/modules/pronto/pronto_wlan.ko:system/lib/modules/wlan.ko
+    $device/xiaomi/tissot/prebuilt/modules/pronto/pronto_wlan.ko:system/lib/modules/wlan.ko
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := tissot,tissot_sprout
