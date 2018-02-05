@@ -15,6 +15,6 @@
 #
 
 for flavor in eng userdebug user; do
-    add_lunch_combo lineage_tissot-$var
+    add_lunch_combo tissot-$var
 done
 
